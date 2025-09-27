@@ -1,4 +1,3 @@
-Written by [Deesick](https://hackwithdeesick.com/about/)
 ## Introduction
 
 If you use Linux on VirtualBox as much as I do, you may encounter an issue when you boot into your machine at some point and you get an error “VBoxClient: the VirtualBox Kernel service is not running. Exiting”

@@ -4,13 +4,7 @@
 
 It is built on the premise that attackers could already be inside the network or might successfully breach it at any moment. As a result, it fundamentally treats all networks, including internal ones, as untrusted by default. This approach ensures that every access attempt, regardless of its origin, is subjected to rigorous scrutiny and validation. To achieve this, Zero Trust relies on three core pillars: **authentication and authorization**, **continuous verification**, and **the principle of least privilege**.
 
-[
-
-![](https://substackcdn.com/image/fetch/$s_!82cf!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F2eb4a357-3cbd-4a11-befc-c1948aef43ca_2454x1626.png)
-
-
-
-](https://substackcdn.com/image/fetch/$s_!82cf!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F2eb4a357-3cbd-4a11-befc-c1948aef43ca_2454x1626.png)
+![Zero Trust Framework error message]({{ '/assets/img/posts/zero-trust/01.png' | relative_url }})
 
 First, every user and device must be rigorously authenticated and authorized before gaining access to any resources. This ensures that only verified entities can interact with the network.
 
@@ -25,13 +19,9 @@ You might be wondering, how does this relate to VPNs? Well, before drawing the c
 Virtual Private Networks (VPNs) have long been a foundational tool in enterprise security, particularly for enabling secure remote access. Their importance has become even more pronounced in an era of remote and hybrid work, where sensitive information is frequently shared from diverse and often unsecured locations.
 
 VPNs operate by extending a private network over a public one, such as the internet, through the creation of an encrypted "tunnel" for data transmission. When a user connects via a VPN, their internet traffic is [encrypted and routed through a secure server](https://www.bemopro.com/cybersecurity-blog/from-vpns-to-security-service-edge).
-[
 
-![](https://substackcdn.com/image/fetch/$s_!0NtZ!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F777e32a4-2589-4a35-89a1-771a4cce8e1a_2637x1806.png)
+![VPN in Remote Security]({{ '/assets/img/posts/zero-trust/02.png' | relative_url }})
 
-
-
-](https://substackcdn.com/image/fetch/$s_!0NtZ!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F777e32a4-2589-4a35-89a1-771a4cce8e1a_2637x1806.png)
 
 This process not only masks the user’s IP address but also allows remote employees or branch offices to appear as if they were operating within the trusted network. This enables seamless access to internal systems and resources from virtually any location. At the same time, it safeguards sensitive data from potential eavesdropping or interception, ensuring a higher level of privacy and security for both the user and the organization.
 
@@ -43,13 +33,7 @@ Also, VPNs grant excessive implicit trust to users once they connect, placing th
 
 Additionally, VPNs lack built-in security monitoring. They act as conduits, not firewalls, meaning any threat detection or traffic inspection requires separate security tools. Zero Trust relies on continuous monitoring and adaptive risk assessment, but VPNs offer neither, creating a “blind trust” model that contradicts Zero Trust’s “always verify” approach.
 
-[
-
-![](https://substackcdn.com/image/fetch/$s_!k8DA!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F77b9721e-1e35-4680-a287-5e6f1648eddc_1878x1086.png)
-
-
-
-](https://substackcdn.com/image/fetch/$s_!k8DA!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F77b9721e-1e35-4680-a287-5e6f1648eddc_1878x1086.png)
+![Best approach for modern threats]({{ '/assets/img/posts/zero-trust/03.png' | relative_url }})
 
 Performance and scalability present additional hurdles for **VPNs**. By routing all traffic through centralized gateways, **VPNs** introduce latency and bottlenecks, particularly in distributed or cloud-heavy environments. Scaling **VPN** infrastructure to support large remote workforces is both expensive and complex, often leading to sluggish connections and frustrating user experiences. In some cases, employees may even bypass the company VPN altogether to improve performance, inadvertently compromising security.
 
@@ -71,13 +55,7 @@ For organizations seeking a robust solution, **[Secure Access Service Edge (SAS
 
 Finally, **Micro-Segmentation** is another widely adopted strategy that partitions resources into small, secure zones within networks, effectively blocking attackers from moving laterally. By enforcing strict communication rules between segments, micro-segmentation minimizes the impact of breaches. When paired with identity controls, it ensures that even compromised access does not provide broad network visibility.
 
-[
-
-![](https://substackcdn.com/image/fetch/$s_!NNIC!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F25b71cda-2cdc-424f-b64b-cfbbd424cdf5_2238x1932.png)
-
-
-
-](https://substackcdn.com/image/fetch/$s_!NNIC!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F25b71cda-2cdc-424f-b64b-cfbbd424cdf5_2238x1932.png)
+![Building a secure future]({{ '/assets/img/posts/zero-trust/04.jpg' | relative_url }})
 
 These technologies collectively address VPN shortcomings by enhancing identity verification, enforcing least privilege, and minimizing attack surfaces. While they share the common goal of enhancing security, each serves a unique purpose and operates at different layers of the security framework. Together, they form a robust Zero Trust framework, ensuring secure, scalable, and resilient operations in modern environments.
 

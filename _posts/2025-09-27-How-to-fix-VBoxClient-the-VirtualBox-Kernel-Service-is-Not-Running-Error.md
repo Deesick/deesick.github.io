@@ -2,7 +2,7 @@
 
 If you use Linux on VirtualBox as much as I do, you may encounter an issue when you boot into your machine at some point and you get an error “VBoxClient: the VirtualBox Kernel service is not running. Exiting”
 
-![[001.jpg]]
+![VBoxGuestAdditions error message]({{ '/assets/img/posts/vbox-client-error-fix/001.jpg' | relative_url }})
 
 When you get this issue, your clipboard, terminal and a few other features may stop functioning normally. There are a few ways to resolve this. One way is to simply navigate to the mounted .iso location on your linux machine, and run the VBoxAdditions script with:
 
@@ -66,11 +66,11 @@ sudo modprobe -r vboxguest vboxsf vboxvideosudo systemctl stop vboxadd.service
 shutdown -h now
 ```
 
-Once done, go ahead to update your virtual box to the latest version. Then go to the storage section in your settings as seen below and mount the latest version of VBoxGuestAdditions.iso file:  ![[002.png]]
+Once done, go ahead to update your virtual box to the latest version. Then go to the storage section in your settings as seen below and mount the latest version of VBoxGuestAdditions.iso file:  ![VBoxGuestAdditions .iso location]({{ '/assets/img/posts/vbox-client-error-fix/002.png' | relative_url }})
 
 Alternatively, VBoxGuestAdditions.iso can be also found from file explorer at C:\Program Files\Oracle\VirtualBox:
 
-![[003.png]]
+![VBoxGuestAdditions .iso location]({{ '/assets/img/posts/vbox-client-error-fix/003.png' | relative_url }})
 
 Once done, start your linux virtual m,achine, go to terminal and run:
 
@@ -94,6 +94,6 @@ Your problem should be fixed. In case you see errors like “failure to build ke
 sudo /sbin/rcvboxadd quicksetup all
 ```
 
-![[004.jpg]]
+![VBoxGuestAdditions error fix]({{ '/assets/img/posts/vbox-client-error-fix/004.jpg' | relative_url }})
 
 Remember to reboot the machine to make sure changes have propagated properly before resuming normal use. If for some reason, the issue persists, refer to the other troubleshooting commands in the error logs. With these steps, your problem should be resolved, and you can return to using your Linux VM smoothly!

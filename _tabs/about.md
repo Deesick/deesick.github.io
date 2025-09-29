@@ -37,7 +37,7 @@ This website chronicles my journey from its very beginning to where I'm at curre
 
 Feel free to reach out to me through either the following email addresses:
 
-- `deesick7@gmail.com` for regular messages
+- `contact@hackwithdeesick.com` for regular messages
     
-- `hackwithdeesick@proton.me` for business inquiries
+- `info@hackwithdeesick.com` for business inquiries
     

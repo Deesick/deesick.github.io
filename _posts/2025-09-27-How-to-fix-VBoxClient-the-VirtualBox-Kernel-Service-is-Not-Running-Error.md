@@ -1,4 +1,11 @@
-## Introduction
+---
+title: "How to fix VBoxClient: The VirtualBox Kernel Service is Not Running Error"
+date: 2025-09-27 10:00:00 +0100
+categories: [tutorials, virtualbox]
+tags: [virtualbox, vboxclient, guest-additions, troubleshooting]
+---
+
+### Introduction
 
 If you use Linux on VirtualBox as much as I do, you may encounter an issue when you boot into your machine at some point and you get an error “VBoxClient: the VirtualBox Kernel service is not running. Exiting”
 

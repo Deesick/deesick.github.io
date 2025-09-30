@@ -1,3 +1,10 @@
+---
+title: "The Limitations of VPNs in Zero Trust Security Architecture"
+date: 2025-09-27 10:00:00 +0100
+categories: [security, zero-trust]
+tags: [vpn, network, architecture]
+---
+
 ### What is Zero Trust Security?
 
 [Zero Trust](https://www.ibm.com/think/topics/zero-trust) is a contemporary security framework that operates on the principle of "never trust, always verify." It assumes that no user or device, whether inside or outside the network perimeter, should be inherently trusted. Every access request must be continuously evaluated and granted based on strict contextual checks and adherence to security policies, ensuring robust protection in today’s dynamic threat landscape.

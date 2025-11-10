@@ -5,7 +5,11 @@ date: 2025-11-10 10:00:00 +01:00
 categories: ["HackTheBox", "Official CPTS Prep"]
 tags: ["CPTS", "practice box", "active directory", "kerberoast", "bloodhound"]
 image: /assets/img/posts/CPTS-prep/Admin/01.png
-excerpt_separator: <!--more-->
+permalink: /administrator/
+redirect_from:
+  - /posts/Administrator/
+draft: false
+excerpt: "This walkthrough covers targeted Kerberoast, BloodHound paths, and AD privilege escalation."
 ---
 
 ## Overview

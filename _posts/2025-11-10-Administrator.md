@@ -353,8 +353,10 @@ The captured hash reveal Ethan’s password: **`limpbizkit`**.
 ___
 Next, I validated Ethan’s creds against `SMB` and `WinRM`:
 
-`nxc smb administrator.htb -u Olivia -p ichliebedich       # Works! 
-`nxc winrm administrator.htb -u Olivia -p ichliebedich     # No luck`
+```shell
+nxc smb administrator.htb -u Ethan -p limpbizkit       # Works! 
+nxc winrm administrator.htb -u Ethan -p limpbizkit     # No luck
+```
 
 I don’t need an interactive shell at this point. `SMB` access is enough to confirm the account and `BloodHound` already showed Ethan has **DCSync** privileges.
 ###### **Why this matters:** DCSync allows an account to request replication data from the Domain Controller (including NTDS hashes). With DCSync I can extract password hashes for any domain account, including Domain Admin. This effectively gives me full domain compromise.

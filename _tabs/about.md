@@ -17,9 +17,7 @@ This website chronicles my journey from its very beginning to where I'm at curre
 
 - CompTIA [A+](https://www.credly.com/badges/17daccb7-f952-4515-808b-833b81d237a5/linked_in_profile), [Net+](https://www.credly.com/badges/6dae065a-42ae-4776-bc6b-9bea52a228a9/linked_in_profile), [Sec+](https://www.credly.com/badges/8df5294d-09a0-4091-9dd3-522186a06525/linked_in_profile)
     
-- HTB CPTS, CWES, CDSA
-    
-- Microsoft AZ-500, SC-300
+- CPTS
     
 - CRTP
     

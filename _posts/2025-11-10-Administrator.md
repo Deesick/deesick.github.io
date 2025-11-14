@@ -170,8 +170,8 @@ bloodhound-python -u Olivia -p ichliebedich -c All -d administrator.htb -ns 10.1
 ```
 ###### **What this does:** `bloodhound-python` collects LDAP, ACL, session and group data and uploads it to a BloodHound database so you can visualise relationships and find short escalation paths.
 
-***Side note:***
-*If you prefer a Rust-based collector, [`RustHound-CE`](https://github.com/g0h4n/RustHound-CE) (by g0h4n) is a great alternative. It’s written in Rust and often captures additional artifacts compared to the Python collector. Use whichever collector you trust and are comfortable with; the important part is ingesting complete ACL and session data so BloodHound can highlight delegation paths you can abuse.*
+**Side note:**
+>If you prefer a Rust-based collector, [`RustHound-CE`](https://github.com/g0h4n/RustHound-CE) (by g0h4n) is a great alternative. It’s written in Rust and often captures additional artifacts compared to the Python collector. Use whichever collector you trust and are comfortable with; the important part is ingesting complete ACL and session data so BloodHound can highlight delegation paths you can abuse.
 
 After starting Neo4j and opening the `BloodHound` UI, the graph showed a **direct delegation** via outbound control between `olivia` and a `michael` user:
 

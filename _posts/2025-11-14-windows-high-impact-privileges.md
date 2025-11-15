@@ -71,3 +71,5 @@ Enable detailed auditing for all sensitive operations. Event ID **4672** (“Spe
 - [https://www.sentinelone.com/labs/relaying-potatoes-another-unexpected-privilege-escalation-vulnerability-in-windows-rpc-protocol/](https://www.sentinelone.com/labs/relaying-potatoes-another-unexpected-privilege-escalation-vulnerability-in-windows-rpc-protocol/)
 
 - [https://github.com/AtvikSecurity/CentralizedPotatoes?tab=readme-ov-file](https://github.com/AtvikSecurity/CentralizedPotatoes?tab=readme-ov-file)
+
+- [https://blog.palantir.com/windows-privilege-abuse-auditing-detection-and-defense-3078a403d74e](https://blog.palantir.com/windows-privilege-abuse-auditing-detection-and-defense-3078a403d74e)

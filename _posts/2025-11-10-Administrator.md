@@ -157,7 +157,8 @@ SeChangeNotifyPrivilege       Bypass traverse checking        Enabled
 SeIncreaseWorkingSetPrivilege Increase a process working set  Enabled
 ```
 
-**Interpretation:** `olivia` is a normal domain user with standard privileges. That said, common AD misconfigurations (delegation/ACLs, writable attributes, backup files) are likely to be present and can be abused. To confirm this, I move to ingest AD data with `BloodHound` and enumerate ACLs.
+>**Interpretation:** `olivia` is a normal domain user with standard privileges. That said, common AD misconfigurations (delegation/ACLs, writable attributes, backup files) are likely to be present and can be abused. To confirm this, I move to ingest AD data with `BloodHound` and enumerate ACLs.
+{: .prompt-info }
 
 ---
 
@@ -168,16 +169,17 @@ I ingested LDAP/AD data into `BloodHound` with the following command:
 ```shell
 bloodhound-python -u Olivia -p ichliebedich -c All -d administrator.htb -ns 10.129.15.252
 ```
-###### **What this does:** `bloodhound-python` collects LDAP, ACL, session and group data and uploads it to a BloodHound database so you can visualise relationships and find short escalation paths.
+>**What this does:** `bloodhound-python` collects LDAP, ACL, session and group data and uploads it to a BloodHound database so you can visualise relationships and find short escalation paths.
 
-**Side note:**
->If you prefer a Rust-based collector, [`RustHound-CE`](https://github.com/g0h4n/RustHound-CE) (by g0h4n) is a great alternative. It’s written in Rust and often captures additional artifacts compared to the Python collector. Use whichever collector you trust and are comfortable with; the important part is ingesting complete ACL and session data so BloodHound can highlight delegation paths you can abuse.
+>**Tip:** If you prefer a Rust-based collector, [`RustHound-CE`](https://github.com/g0h4n/RustHound-CE) (by g0h4n) is a great alternative. It’s written in Rust and often captures additional artifacts compared to the Python collector. Use whichever collector you trust and are comfortable with; the important part is ingesting complete ACL and session data so BloodHound can highlight delegation paths you can abuse.
+{: .prompt-tip }
 
 After starting Neo4j and opening the `BloodHound` UI, the graph showed a **direct delegation** via outbound control between `olivia` and a `michael` user:
 
 ![Title card]({{ 'assets/img/posts/CPTS-prep/Admin/02.png' | relative_url }})
 
-###### **This is critical**: `GenericAll` on a user object grants essentially full control over that account, including the ability to reset its password. In practical terms, Olivia can take over Michael immediately.
+>**This is critical**: `GenericAll` on a user object grants essentially full control over that account, including the ability to reset its password. In practical terms, Olivia can take over Michael immediately.
+{: .prompt-warning }
 
 There are multiple ways to reset a delegated account's password:
 
@@ -200,7 +202,8 @@ bloodyAD -u "olivia" -p "ichliebedich" -d "administrator.htb" --host "10.129.15.
 net rpc password "michael" "password123." -U "administrator.htb"/"olivia"%"ichliebedich" -S 10.129.15.252
 ```
 
-###### **Why act now**: changing Michael’s password is the shortest path to a new foothold. Once I can pivot to Michael, I can re-run enumeration, and look for further delegation.
+> **Why act now**: changing Michael’s password is the shortest path to a new foothold. Once I can pivot to Michael, I can re-run enumeration, and look for further delegation.
+{: .prompt-info }
 
 ---
 
@@ -248,8 +251,8 @@ Since ftp is accessible, I logged in and was able to find and retrieve a Passwor
 
 `hashcat -m 5200 Backup.psafe3 /usr/share/wordlists/rockyou.txt`
 
-**Note:**
-- Hashcat mode **5200** is for Password Safe v3 (`*.psafe3`)
+> **Note:** Hashcat mode **5200** is for Password Safe v3 (`*.psafe3`)
+{: .prompt-info }
 
 ```shell
 Bytes.....: 139921507
@@ -363,7 +366,9 @@ nxc winrm administrator.htb -u Ethan -p limpbizkit     # No luck
 ```
 
 I don’t need an interactive shell at this point. `SMB` access is enough to confirm the account and `BloodHound` already showed Ethan has **DCSync** privileges.
-###### **Why this matters:** DCSync allows an account to request replication data from the Domain Controller (including NTDS hashes). With DCSync I can extract password hashes for any domain account, including Domain Admin. This effectively gives me full domain compromise.
+
+>**Why this matters:** DCSync allows an account to request replication data from the Domain Controller (including NTDS hashes). With DCSync I can extract password hashes for any domain account, including Domain Admin. This effectively gives me full domain compromise.
+{: .prompt-info }
 
 ```shell
 secretsdump.py ethan:limpbizkit@dc.administrator.htb

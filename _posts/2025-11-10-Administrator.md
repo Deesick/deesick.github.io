@@ -2,7 +2,7 @@
 layout: post
 title: "Administrator (Retired Box)"
 date: 2025-11-10 10:00:00 +01:00
-categories: ["HackTheBox", "Official CPTS Prep"]
+categories: ["HackTheBox", "Active Directory", "Official CPTS Prep"]
 tags: ["CPTS", "practice box", "active directory", "kerberoast", "bloodhound"]
 image: /assets/img/posts/CPTS-prep/Admin/administrator.png
 permalink: /administrator/

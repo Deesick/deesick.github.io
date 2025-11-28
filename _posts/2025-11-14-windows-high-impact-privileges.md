@@ -2,7 +2,7 @@
 layout: post
 title: "Common High-Impact Privileges in Windows"
 date: 2025-11-14 04:00:00 +01:00
-categories: ["Windows", "Privilege Escalation"]
+categories: ["Windows", "Active Directory"]
 tags: ["privileges", "windows-security", "priv-esc", "access-token"]
 image: /assets/img/posts/win-priv/01.png
 permalink: /windows-privileges-overview/

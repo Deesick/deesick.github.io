@@ -2,7 +2,7 @@
 layout: post
 title: "TombWatcher (Retired Box)"
 date: 2025-11-19 10:00:00 +01:00
-categories: ["HackTheBox", "Active Directory", "Official CPTS Prep"]
+categories: ["HackTheBox", "Active Directory Labs", "Official CPTS Prep"]
 tags: [
   "CPTS",
   "active directory",

@@ -31,7 +31,7 @@ excerpt: "A walkthrough of Redelegate covering FTP-based foothold, KeePass crack
 
 ## Overview
 
-Redelegate is a hard Windows AD machine that opens with Anonymous FTP exposure, leaking a KeePass database that leads to a valid local MSSQL login. Using that foothold to enumerate domain accounts reveals a weakly protected user, Marie.Curie, who holds ForceChangePassword rights over Helen.Frost. Once Helen is compromised, her membership in Remote Management Users grants direct WinRM access to the domain controller. Helen also has the rare **SeEnableDelegationPrivilege** and full control over the `FS01$` computer object, allowing the attacker to reset its password, configure constrained delegation, and ultimately impersonate a privileged account to perform a DCSync and take the domain.
+Redelegate is a hard Windows AD machine that opens with Anonymous FTP exposure, leaking a KeePass database that leads to a valid local MSSQL login. Using that foothold to enumerate domain accounts reveals a weakly protected user, `marie.curie`, who holds **ForceChangePassword** rights over `helen.frost`. Once Helen is compromised, her membership in Remote Management Users grants direct WinRM access to the domain controller. Helen also has **SeEnableDelegationPrivilege** and **GenericAll** over the `FS01$` computer object, allowing the attacker to reset its password, configure constrained delegation, and ultimately impersonate a privileged account to perform a DCSync and take the domain.
 
 ---
 ## Recon

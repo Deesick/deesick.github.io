@@ -239,7 +239,7 @@ There is a time skew problem which can be easily fixed:
 sudo ntpdate cicada.vl
 ```
 
-However, after fixing **SMB** still isn’t giving anything up, so the next logical pivot is the exposed **NFS** service on port **2049**.
+However, after fixing the time skew **SMB** still isn’t giving anything up, so the next logical pivot is the exposed **NFS** service on port **2049**.
 ###### **Enumerating NFS**
 
 I check what the server exports publicly:
@@ -250,7 +250,7 @@ Export list for cicada.vl:
 /profiles (everyone)
 ```
 
-It does so I proceed to mount the share and list its content:
+I then proceed to mount the share and list its content:
 ```shell
 ┌─[us-dedivip-1]─[10.10.14.74]─[deesick@htb-ovdhvrjiyt]─[~/HTB/vulncicada]
 └──╼ [★]$ sudo mount -t nfs -o rw cicada.vl:/profiles /mnt
@@ -285,20 +285,20 @@ It seems that the exported `/profiles` directory is essentially exposing the **W
 14 directories, 2 files
 ```
 
-This is a _severe_ misconfiguration. A domain controller exposing its user profile directory over NFS to “everyone” is practically giving away local user data that may give me initial foothold.
 One of the readable directories, **Administrator** contains `vacation.png` and another, **Rosie.Powell**, contains a file called `marketing.png`:
 
 ```
 2251799813708883 1792 -rwx------ 1 nobody nogroup 1832505 Sep 13 2024 /mnt/Rosie.Powell/marketing.png
 ```
 
-The permissions block direct reading of `marketing.png`, but since the NFS export itself is world-writable from the client side, changing permissions locally works:
+The permissions block direct reading of `marketing.png`, but since the NFS export is world-writable, I can change read permissions and then copy it over to my current working directory:
 
 ```shell
 chmod +r /mnt/Rosie.Powell/marketing.png
+cp /mnt/Rosie.Powell/marketing.png .
 ```
 
-Alternatively, just copying the file out bypasses the restriction entirely:
+Alternatively, just copying the file with sudo bypasses the restriction entirely:
 
 ```shell
 sudo cp /mnt/Rosie.Powell/marketing.png . 
@@ -362,7 +362,7 @@ Impacket v0.13.0.dev0+20250130.104306.0f4b866 - Copyright Fortra, LLC and its af
 └──╼ [★]$ export KRB5CCNAME=Rosie.Powell.ccache
 ```
 
-With the TGT loaded, I connect over SMB using Kerberos:
+With the **TGT** loaded, I connect over **SMB** using Kerberos:
 
 ```shell
 ┌─[us-dedivip-1]─[10.10.14.74]─[deesick@htb-ovdhvrjiyt]─[~/HTB/vulncicada]

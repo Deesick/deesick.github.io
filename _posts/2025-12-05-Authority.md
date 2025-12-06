@@ -249,7 +249,7 @@ Anonymous access didn’t work, so I retried using the default **guest** account
 
 SMB 10.129.229.56 445 AUTHORITY [*] Windows 10.0 Build 17763 x64 
     (name:AUTHORITY) (domain:authority.htb) (signing:True) (SMBv1:False)
-SMB 10.129.229.56 445 AUTHORITY [+] authority.htb\oxdf:
+SMB 10.129.229.56 445 AUTHORITY [+] authority.htb\guest:
 SMB 10.129.229.56 445 AUTHORITY [*] Enumerated shares
 SMB 10.129.229.56 445 AUTHORITY Share        Permissions   Remark
 SMB 10.129.229.56 445 AUTHORITY -----        -----------   ------
@@ -343,14 +343,7 @@ I also review the `defaults/main.yml` file, which contains several Ansible Vault
 ┌──(sicario㉿kali)-[~/HacktheBox/authority/Automation/Ansible]
 └─$ cat defaults/main.yml
 
-pwm_run_dir: "{{ lookup('env', 'PWD') }}"
-
-pwm_hostname: authority.htb.corp
-pwm_http_port: "{{ http_port }}"
-pwm_https_port: "{{ https_port }}"
-pwm_https_enable: true
-
-pwm_require_ssl: false
+<SNIP>
 
 pwm_admin_login: !vault |
           $ANSIBLE_VAULT;1.1;AES256

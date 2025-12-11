@@ -209,6 +209,8 @@ Host script results:
 - **WinRM (5985)** is open. This usually becomes relevant once credentials are obtained and is a strong indicator of remote command execution potential later in the chain.
   
 - Significant time skew suggests that before attempting Kerberos-based attacks (e.g. Kerberoasting, ticket generation), the clock should be synced (e.g. via `ntpdate` or `ntpdate` + `faketime` = [timewrap](https://voidread.pages.dev/hacking/linux/Timewrap/) ) to avoid authentication issues.
+
+Next, I’ll map the discovered hostnames to the target’s IP in `/etc/hosts`:
   
 ```
 echo "10.129.229.56 authority.htb" | sudo tee -a /etc/hosts

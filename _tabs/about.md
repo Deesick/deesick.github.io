@@ -7,9 +7,7 @@ permalink: /about/
 
 Welcome to **HackwithDeesick**
 
-My name is Deesick. I am a penetration tester who specializes in Active Directory assessments and web-application security. I design and execute real-world attack simulations that help organizations strengthen their defenses against emerging security threats.
-
-This website chronicles my journey from its very beginning to where I'm at currently. Here, you’ll find tips, write-ups, notes and reflections drawn from my own practical experiences. Whether you’re just starting out or already deep in the trenches, I hope you find something useful here that can support your growth.
+My name is Daniel Ayodeji (a.k.a Deesick). I’m a security analyst specializing in vulnerability assessment, attack surface analysis, and practical risk remediation. This website contains write-ups, tips and notes drawn from my own practical experiences. Whether you’re just starting out or already deep in the trenches, I hope you find something useful here that can support your growth.
 
 ---
 

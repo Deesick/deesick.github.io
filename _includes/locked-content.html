@@ -1,0 +1,355 @@
+<style scoped>
+  .deesick-lock-wrapper { position: relative; margin: 2rem 0; }
+
+  .deesick-lock-wrapper *, .deesick-lock-wrapper *::before, .deesick-lock-wrapper *::after {
+    box-sizing: border-box;
+  }
+
+  .deesick-lock-card {
+    background: linear-gradient(135deg, #1a1a2e 0%, #2a1a0e 100%);
+    border: 1px solid #e85d04;
+    border-radius: 12px;
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    transition: transform 0.3s cubic-bezier(0.4,0,0.2,1), box-shadow 0.3s cubic-bezier(0.4,0,0.2,1);
+  }
+
+  .deesick-lock-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: -100%;
+    width: 100%; height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(232,93,4,0.1), transparent);
+    transition: left 0.5s ease;
+  }
+
+  .deesick-lock-card:hover::before { left: 100%; }
+
+  .deesick-lock-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(232,93,4,0.2);
+  }
+
+  .deesick-lock-badge {
+    position: absolute;
+    top: 1rem; right: 1rem;
+    background: rgba(232,93,4,0.15);
+    border: 1px solid rgba(232,93,4,0.4);
+    border-radius: 20px;
+    padding: 0.3rem 0.75rem;
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: #e85d04;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .deesick-lock-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .deesick-lock-icon-box {
+    width: 48px; height: 48px;
+    background: #e85d04;
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.4rem;
+    flex-shrink: 0;
+    transition: transform 0.3s cubic-bezier(0.4,0,0.2,1);
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+  }
+
+  .deesick-lock-card:hover .deesick-lock-icon-box {
+    transform: scale(1.1) rotate(-5deg);
+  }
+
+  .deesick-lock-info h3 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #fff;
+    margin: 0 0 0.5rem 0;
+  }
+
+  .deesick-lock-info p {
+    font-size: 0.85rem;
+    color: #bbb;
+    margin: 0 0 0.5rem 0;
+    line-height: 1.6;
+  }
+
+  .deesick-lock-info a {
+    color: #e85d04;
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  .deesick-lock-info a:hover { text-decoration: underline; }
+
+  .deesick-input-row {
+    display: flex;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+    flex-wrap: wrap;
+  }
+
+  .deesick-pwd-input {
+    flex: 1;
+    min-width: 240px;
+    padding: 0.75rem 1rem;
+    background: #0f0f1a !important;
+    border: 1px solid #444 !important;
+    border-radius: 8px;
+    color: #fff !important;
+    font-size: 0.95rem;
+    outline: none !important;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .deesick-pwd-input:focus {
+    border-color: #e85d04 !important;
+    box-shadow: 0 0 0 3px rgba(232,93,4,0.15) !important;
+  }
+
+  .deesick-pwd-input::placeholder { color: #666 !important; }
+
+  .deesick-unlock-btn {
+    padding: 0.75rem 1.25rem;
+    background: #e85d04;
+    color: #fff !important;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    cursor: pointer;
+    white-space: nowrap;
+    box-shadow: 0 2px 8px rgba(232,93,4,0.3);
+    transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
+    position: relative; overflow: hidden;
+  }
+
+  .deesick-unlock-btn::before {
+    content: '';
+    position: absolute; top: 0; left: -100%;
+    width: 100%; height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.4s ease;
+  }
+
+  .deesick-unlock-btn:hover::before { left: 100%; }
+
+  .deesick-unlock-btn:hover {
+    background: #ff7a2e;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 14px rgba(232,93,4,0.45);
+  }
+
+  .deesick-unlock-btn:active { transform: translateY(0); }
+
+  .deesick-unlock-btn:disabled { opacity: 0.6; cursor: not-allowed; transform: none !important; }
+
+  .deesick-error-msg {
+    font-size: 0.82rem;
+    color: #fca5a5;
+    background: rgba(239,68,68,0.1);
+    border: 1px solid rgba(239,68,68,0.3);
+    border-radius: 6px;
+    padding: 0.5rem 0.875rem;
+    margin-bottom: 0.75rem;
+    display: none;
+  }
+
+  .deesick-success-msg {
+    font-size: 0.82rem;
+    color: #e85d04;
+    background: rgba(232,93,4,0.1);
+    border: 1px solid rgba(232,93,4,0.3);
+    border-radius: 6px;
+    padding: 0.5rem 0.875rem;
+    margin-bottom: 0.75rem;
+    display: none;
+  }
+
+  .deesick-social-divider {
+    border-top: 1px solid #2a2a3a;
+    margin-top: 1.5rem;
+    padding-top: 1.25rem;
+  }
+
+  .deesick-social-text {
+    font-size: 0.8rem;
+    color: #888;
+    text-align: center;
+    margin-bottom: 0.75rem;
+  }
+
+  .deesick-social-links {
+    display: flex;
+    justify-content: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+
+  .deesick-social-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.4rem 1rem;
+    background: #0f0f1a;
+    border: 1px solid #333;
+    border-radius: 8px;
+    color: #ccc !important;
+    text-decoration: none;
+    font-size: 0.82rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+  }
+
+  .deesick-social-link:hover {
+    border-color: #e85d04;
+    color: #e85d04 !important;
+    transform: translateY(-2px);
+  }
+
+  .deesick-unlocked-content { animation: deesick-fadein 0.6s ease; }
+
+  @keyframes deesick-fadein {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes deesick-shake {
+    0%, 100% { transform: translateX(0); }
+    25%       { transform: translateX(-10px); }
+    75%       { transform: translateX(10px); }
+  }
+
+  .deesick-shake { animation: deesick-shake 0.5s ease-in-out; }
+
+  @media (max-width: 768px) {
+    .deesick-lock-card { padding: 1.5rem; }
+    .deesick-input-row { flex-direction: column; }
+    .deesick-pwd-input { min-width: auto; }
+    .deesick-unlock-btn { width: 100%; }
+    .deesick-lock-header { flex-direction: column; gap: 0.75rem; }
+    .deesick-lock-badge { position: static; display: inline-block; margin-bottom: 1rem; }
+  }
+</style>
+
+<div class="deesick-lock-wrapper">
+
+  <div class="deesick-lock-card" id="deesick-lock-card">
+    <span class="deesick-lock-badge">Secured</span>
+
+    <div class="deesick-lock-header">
+      <div class="deesick-lock-icon-box">🔒</div>
+      <div class="deesick-lock-info">
+        <h3>Active HackTheBox Challenge</h3>
+        <p>
+          This challenge is currently active on
+          <a href="https://www.hackthebox.com" target="_blank" rel="noopener">HackTheBox</a>.
+          According to <a href="https://help.hackthebox.com/en/articles/5188925-streaming-writeups-walkthrough-guidelines" target="_blank" rel="noopener">HTB's content policy</a>,
+          sharing writeups of active challenges is prohibited.
+        </p>
+        <p>This writeup will be made publicly available once the challenge is retired.</p>
+      </div>
+    </div>
+
+    <div class="deesick-input-row">
+      <input type="password"
+             id="deesick-pwd-input"
+             class="deesick-pwd-input"
+             placeholder="Enter access password..."
+             autocomplete="off"
+             onkeydown="if(event.key==='Enter') deesickUnlock()"/>
+      <button class="deesick-unlock-btn"
+              id="deesick-unlock-btn"
+              onclick="deesickUnlock()">
+        Unlock Content
+      </button>
+    </div>
+
+    <div id="deesick-error" class="deesick-error-msg">❌ Incorrect password. Please try again.</div>
+    <div id="deesick-success" class="deesick-success-msg">✅ Access granted! Unlocking content...</div>
+
+    <div class="deesick-social-divider">
+      <p class="deesick-social-text">Need the password? Join the Discord community:</p>
+      <div class="deesick-social-links">
+        <a href="https://discord.gg/QpxcYr2w" target="_blank" rel="noopener" class="deesick-social-link">
+          <i class="fab fa-discord"></i> Discord
+        </a>
+        <a href="https://x.com/deesick_" target="_blank" rel="noopener" class="deesick-social-link">
+          <i class="fa-brands fa-x-twitter"></i> X (Twitter)
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div id="deesick-hidden-content" style="display:none;">
+    {{ content }}
+  </div>
+
+</div>
+
+<script>
+(function () {
+  const HASH = "{{ page.password_hash }}";
+
+  async function sha256(msg) {
+    const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(msg));
+    return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2,'0')).join('');
+  }
+
+  window.deesickUnlock = async function () {
+    const input  = document.getElementById('deesick-pwd-input');
+    const btn    = document.getElementById('deesick-unlock-btn');
+    const card   = document.getElementById('deesick-lock-card');
+    const errMsg = document.getElementById('deesick-error');
+    const okMsg  = document.getElementById('deesick-success');
+
+    errMsg.style.display = 'none';
+    okMsg.style.display  = 'none';
+    card.classList.remove('deesick-shake');
+
+    if (!input.value.trim()) {
+      errMsg.textContent = '⚠️ Please enter a password.';
+      errMsg.style.display = 'block';
+      return;
+    }
+
+    btn.disabled = true;
+    btn.textContent = 'Checking...';
+
+    const entered = await sha256(input.value.trim());
+
+    setTimeout(() => {
+      btn.disabled = false;
+      btn.textContent = 'Unlock Content';
+
+      if (entered === HASH) {
+        okMsg.style.display = 'block';
+        setTimeout(() => {
+          card.style.transition = 'all 0.8s ease';
+          card.style.opacity = '0';
+          card.style.transform = 'translateY(-20px)';
+          setTimeout(() => {
+            card.style.display = 'none';
+            const content = document.getElementById('deesick-hidden-content');
+            content.style.display = 'block';
+            content.classList.add('deesick-unlocked-content');
+          }, 800);
+        }, 1000);
+      } else {
+        errMsg.style.display = 'block';
+        card.classList.add('deesick-shake');
+        input.value = '';
+        setTimeout(() => card.classList.remove('deesick-shake'), 500);
+      }
+    }, 600);
+  };
+})();
+</script>

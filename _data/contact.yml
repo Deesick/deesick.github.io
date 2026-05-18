@@ -8,12 +8,12 @@
 
 - type: hackthebox
   icon: "fas fa-cube"
-  url: "https://app.hackthebox.com/users/1779695"
+  url: "https://app.hackthebox.com/public/users/1779695"
   noblank: false
 
-- type: rss
-  icon: "fas fa-rss"
-  noblank: true
+- type: linkedin
+  icon: "fab fa-linkedin"
+  url: "https://www.linkedin.com/in/deesick/"
 # Uncomment and complete the url below to enable more contact options
 #
 # - type: mastodon

@@ -15,9 +15,9 @@ image: /assets/img/posts/htb-boxes/connected/connected.png
 permalink: /connected/
 redirect_from:
   - /posts/Connected/
-draft: false
+draft: true
 excerpt: "Connected is an Easy Linux box running FreePBX 16.0.40.7, exploited via a two-CVE unauthenticated chain that drops a webshell, with privilege escalation through an incron-triggered DAHDI config injection to land a root shell."
-locked: true
+locked: false
 password_hash: 281d2104c5d4d4fe0c477f46a7f7b9b422ae962b1f919dbf1af2ee7777fbfec6
 ---
 

@@ -17,9 +17,38 @@
     position: relative;
     overflow: hidden;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    /* FIX: stop the flex sidebar from squashing the card */
+    flex: 0 0 auto;
+    min-height: max-content;
   }
 
-  /* Shimmer sweep on hover */
+  /* FIX: let the sidebar scroll instead of crushing its children */
+  #sidebar {
+    overflow-y: auto;
+  }
+
+    /* Center avatar, title and tagline in the sidebar */
+    #sidebar .profile-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      width: 100%;
+      padding: 0 1rem;
+    }
+
+    #sidebar #avatar {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    #sidebar .site-title,
+    #sidebar .site-subtitle {
+      text-align: center;
+      width: 100%;
+    }
+
   .deesick-support-container::before {
     content: '';
     position: absolute;
@@ -27,18 +56,12 @@
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(
-      90deg,
-      transparent,
-      rgba(232, 93, 4, 0.12),
-      transparent
-    );
+    background: linear-gradient(90deg, transparent, rgba(232, 93, 4, 0.12), transparent);
     transition: left 0.5s ease;
+    pointer-events: none;
   }
 
-  .deesick-support-container:hover::before {
-    left: 100%;
-  }
+  .deesick-support-container:hover::before { left: 100%; }
 
   .deesick-support-container:hover {
     transform: translateY(-2px);
@@ -90,7 +113,6 @@
     overflow: hidden;
   }
 
-  /* Button shimmer */
   .deesick-support-btn::before {
     content: '';
     position: absolute;
@@ -98,18 +120,11 @@
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(
-      90deg,
-      transparent,
-      rgba(255, 255, 255, 0.2),
-      transparent
-    );
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
     transition: left 0.4s ease;
   }
 
-  .deesick-support-btn:hover::before {
-    left: 100%;
-  }
+  .deesick-support-btn:hover::before { left: 100%; }
 
   .deesick-support-btn:hover {
     background: #ff7a2e;
@@ -117,31 +132,35 @@
     box-shadow: 0 4px 14px rgba(232, 93, 4, 0.45);
   }
 
-  .deesick-support-btn:active {
-    transform: translateY(0);
-  }
+  .deesick-support-btn:active { transform: translateY(0); }
 
-  /* Responsive */
+  /* Responsive width */
   @media (max-width: 1200px) {
-    .deesick-support-container {
-      max-width: 240px;
-      padding: 1rem 0.875rem;
-    }
+    .deesick-support-container { max-width: 240px; padding: 1rem 0.875rem; }
     .deesick-support-icon { font-size: 2rem; }
     .deesick-support-title { font-size: 0.8rem; }
     .deesick-support-subtitle { font-size: 0.7rem; }
   }
 
   @media (max-width: 850px) {
-    .deesick-support-container {
-      max-width: 220px;
-      padding: 0.875rem 0.75rem;
-    }
+    .deesick-support-container { max-width: 220px; padding: 0.875rem 0.75rem; }
     .deesick-support-icon { font-size: 1.75rem; margin-bottom: 0.35rem; }
     .deesick-support-btn { padding: 0.35rem 1rem; font-size: 0.72rem; }
   }
 
-  /* Light mode override */
+  /* FIX: compact on short viewports (devtools open, mobile landscape) */
+  @media (max-height: 800px) {
+    .deesick-support-container { padding: 0.75rem; margin: 0.5rem auto; }
+    .deesick-support-icon { font-size: 1.5rem; margin-bottom: 0.25rem; }
+    .deesick-support-subtitle { margin-bottom: 0.5rem; }
+  }
+
+  /* FIX: very short screens, hide rather than cram */
+  @media (max-height: 600px) {
+    .deesick-support-container { display: none; }
+  }
+
+  /* Light mode */
   @media (prefers-color-scheme: light) {
     .deesick-support-container {
       background: linear-gradient(135deg, #fff4ee 0%, #fff8f5 100%);

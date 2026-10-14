@@ -8,9 +8,9 @@ order: 4
 
 # Daniel Ayodeji (Deesick)
 
-Security Analyst · Penetration Tester · Content Creator
+Security Researcher · Penetration Tester · Content Creator
 
-*Break it. Fix it. Teach it.*
+*Investigate. Analyse. Document.*
 
 ---
 
@@ -18,9 +18,11 @@ Security Analyst · Penetration Tester · Content Creator
 
 Hi there! 👋
 
-My name is **Daniel Ayodeji**, also known as **Deesick**. I am a security analyst specialising in **vulnerability assessment**, **attack surface analysis**, and **practical risk remediation**. I hold industry certifications including CompTIA A+, Network+, Security+, CPTS and CRTP.
+My name is **Daniel Ayodeji**, also known as **Deesick**. I focus on **security research, phishing investigations, threat intelligence, and adversary TTP analysis**. My work explores how attackers operate, the techniques they use, and how their infrastructure, tools, and tactics can be investigated and detected.
 
-This website is my digital notebook and community resource. Every writeup, tip, and note here is drawn from real hands-on experience gained from both active and retired HackTheBox machines, real-world active directory attack chains, and other personal research. If you're just starting out or already deep in the trenches, I hope you find something useful here.
+This website is my digital notebook and research resource, documenting phishing campaigns, malicious infrastructure, attack techniques, and hands-on security investigations. I also share practical notes on vulnerability research, Active Directory attack paths, and lessons from Hack The Box labs. The goal is to turn technical findings into useful knowledge that helps security practitioners better understand threats, recognise attacker behaviour, and improve detection and defence.
+
+Whether you're learning security research or already working in the field, I hope you find something useful here.
 
 ---
 ## 🏆 Certifications & Achievements
@@ -49,8 +51,8 @@ This website is my digital notebook and community resource. Every writeup, tip, 
   <!-- CPTS -->
   <div style="background: var(--card-bg, #fff); border: 1px solid var(--border-color, #e0e0e0); border-radius: 10px; padding: 1.25rem; display: flex; flex-direction: column; gap: 10px; border-top: 3px solid #9FEF00;">
     <div style="display: flex; align-items: center; gap: 10px;">
-      <div style="width: 40px; height: 40px; border-radius: 6px; background: #1A2332; display: flex; align-items: center; justify-content: center; flex-shrink: 0; padding: 5px;">
-        <img src="https://logo.svgcdn.com/simple-icons/hackthebox-dark.svg" alt="HackTheBox" style="width: 30px; height: 30px; object-fit: contain; filter: brightness(0) saturate(100%) invert(86%) sepia(88%) saturate(492%) hue-rotate(38deg) brightness(103%) contrast(103%);"/>
+      <div style="width: 40px; height: 40px; border-radius: 6px; background: #1A2332; display: flex; align-items: center; justify-content: center; flex-shrink: 0; overflow: hidden;">
+        <img src="https://i.postimg.cc/Gpff2stS/idei4Pyk-Nj-1791902245878.jpg" alt="HackTheBox" style="width: 100%; height: 100%; object-fit: contain;"/>
       </div>
       <div>
         <p style="font-size: 14px; font-weight: 600; margin: 0;">CPTS</p>
@@ -63,28 +65,11 @@ This website is my digital notebook and community resource. Every writeup, tip, 
     </div>
   </div>
 
-  <!-- CRTP -->
-  <div style="background: var(--card-bg, #fff); border: 1px solid var(--border-color, #e0e0e0); border-radius: 10px; padding: 1.25rem; display: flex; flex-direction: column; gap: 10px; border-top: 3px solid #B388FF;">
-    <div style="display: flex; align-items: center; gap: 10px;">
-      <div style="width: 40px; height: 40px; border-radius: 6px; background: #fff; border: 1px solid #e0e0e0; display: flex; align-items: center; justify-content: center; flex-shrink: 0; padding: 3px;">
-        <img src="https://static.wixstatic.com/media/52db83_5a279298021f4672904e829084d9279e~mv2.png" alt="Altered Security" style="width: 34px; height: 34px; object-fit: contain;"/>
-      </div>
-      <div>
-        <p style="font-size: 14px; font-weight: 600; margin: 0;">CRTP</p>
-        <p style="font-size: 11px; color: #888; margin: 0;">Altered Security</p>
-      </div>
-    </div>
-    <p style="font-size: 12px; color: #666; margin: 0; line-height: 1.5;">Active Directory attacks, lateral movement & privilege escalation</p>
-    <div style="display: flex; gap: 6px;">
-      <span style="font-size: 10px; background: #EEEDFE; color: #3C3489; padding: 2px 9px; border-radius: 20px; font-weight: 500;">Red Team</span>
-    </div>
-  </div>
-
   <!-- Content Creator -->
   <div style="background: var(--card-bg, #fff); border: 1px solid var(--border-color, #e0e0e0); border-radius: 10px; padding: 1.25rem; display: flex; flex-direction: column; gap: 10px; border-top: 3px solid #378ADD;">
     <div style="display: flex; align-items: center; gap: 10px;">
       <div style="width: 40px; height: 40px; border-radius: 6px; background: #1A2332; display: flex; align-items: center; justify-content: center; flex-shrink: 0; overflow: hidden;">
-        <img src="https://hackwithdeesick.com/assets/img/favicons/favicon.svg" alt="HackwithDeesick" style="width: 40px; height: 40px; object-fit: cover;"/>
+        <img src="/assets/img/favicons/favicon.svg" alt="HackwithDeesick" style="width: 40px; height: 40px; object-fit: cover;"/>
       </div>
       <div>
         <p style="font-size: 14px; font-weight: 600; margin: 0;">Content creator</p>
@@ -103,9 +88,9 @@ This website is my digital notebook and community resource. Every writeup, tip, 
 
 ## 🎯 Areas of Expertise
 
-`Active Directory Attacks` `Privilege Escalation` `Windows Security` `Network Penetration Testing`
-`Web Application Security` `Vulnerability Assessment`
-`Technical Content Writing` `Attack Surface Analysis` `Linux Security`
+`Phishing Investigations ` `OSINT Threat Intelligence` `Windows Security` `Adversary TTP Analysis`
+`Attack Surface Analysis` `Vulnerability Assessment`
+`Research Technical Writing`
 
 ---
 

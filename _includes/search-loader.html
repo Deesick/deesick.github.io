@@ -1,0 +1,76 @@
+<!--
+  Jekyll Simple Search loader  --  local override of the Chirpy theme include.
+
+  Upstream initialises SimpleJekyllSearch on DOMContentLoaded, which makes the
+  library fetch the whole search index immediately, on every page, whether or
+  not the visitor ever searches. The index embeds the full text of every post
+  and grows with each one, so that was a needless download on every page view.
+
+  This version defers initialisation until the search UI is actually opened
+  (the topbar trigger) or the input is focused, so the index is only fetched by
+  visitors who search.
+-->
+
+{% capture result_elem %}
+  <article class="px-1 px-sm-2 px-lg-4 px-xl-0">
+    <header>
+      <h2><a href="{url}">{title}</a></h2>
+      <div class="post-meta d-flex flex-column flex-sm-row text-muted mt-1 mb-1">
+        {categories}
+        {tags}
+      </div>
+    </header>
+    <p>{content}</p>
+  </article>
+{% endcapture %}
+
+{% capture not_found %}<p class="mt-5">{{ site.data.locales[include.lang].search.no_results }}</p>{% endcapture %}
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    {% comment %} Note: dependent library will be loaded in `js-selector.html` {% endcomment %}
+    let searchInitialised = false;
+
+    const initSearch = () => {
+      if (searchInitialised || typeof SimpleJekyllSearch !== 'function') return;
+      searchInitialised = true;
+
+      SimpleJekyllSearch({
+        searchInput: document.getElementById('search-input'),
+        resultsContainer: document.getElementById('search-results'),
+        json: '{{ '/assets/js/data/search.json' | relative_url }}',
+        searchResultTemplate: '{{ result_elem | strip_newlines }}',
+        noResultsText: '{{ not_found }}',
+        templateMiddleware: function(prop, value, template) {
+          if (prop === 'categories') {
+            if (value === '') {
+              return `${value}`;
+            } else {
+              return `<div class="me-sm-4"><i class="far fa-folder fa-fw"></i>${value}</div>`;
+            }
+          }
+
+          if (prop === 'tags') {
+            if (value === '') {
+              return `${value}`;
+            } else {
+              return `<div><i class="fa fa-tag fa-fw"></i>${value}</div>`;
+            }
+          }
+        }
+      });
+    };
+
+    const trigger = document.getElementById('search-trigger');
+    const input = document.getElementById('search-input');
+
+    if (trigger) {
+      trigger.addEventListener('click', initSearch, { once: true });
+    }
+
+    if (input) {
+      input.addEventListener('focus', initSearch, { once: true });
+      input.addEventListener('input', initSearch, { once: true });
+    }
+  });
+</script>

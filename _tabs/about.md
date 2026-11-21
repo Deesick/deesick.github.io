@@ -4,7 +4,7 @@ icon: fas fa-info-circle
 order: 4
 ---
 
-![Daniel Ayodeji](/assets/img/avatar.png){: .left width="150" }
+![Daniel Ayodeji](/assets/img/avatar.webp){: .left width="150" }
 
 # Daniel Ayodeji (Deesick)
 
